@@ -43,11 +43,6 @@ class Task extends Equatable {
 
   @override
   List<Object> get props {
-    return [
-      title,
-      icon,
-      color,
-      todos ?? [],
-    ];
+    return [title, icon, color];
   }
 }
