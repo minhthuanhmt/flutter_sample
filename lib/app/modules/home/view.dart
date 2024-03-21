@@ -4,7 +4,7 @@ import 'package:flutter_sample/app/core/utils/extensions.dart';
 import 'package:flutter_sample/app/data/models/task.dart';
 import 'package:flutter_sample/app/modules/home/controller.dart';
 import 'package:flutter_sample/app/modules/home/widget/add_card.dart';
-import 'package:flutter_sample/app/modules/home/widget/add_dialog.dart';
+import 'package:flutter_sample/app/modules/home/widget/add_task.dart';
 import 'package:flutter_sample/app/modules/home/widget/task_card.dart';
 import 'package:get/get.dart';
 
@@ -71,7 +71,11 @@ class HomePage extends GetView<HomeController> {
               backgroundColor:
                   controller.deleting.value ? Colors.red : Colors.blue,
               onPressed: () {
-                Get.to(() => AddDialog(), transition: Transition.downToUp);
+                if (controller.tasks.isNotEmpty) {
+                  Get.to(() => AddTask(), transition: Transition.downToUp);
+                } else {
+                  EasyLoading.showError("Please add task first");
+                }
               },
               child: Icon(controller.deleting.value ? Icons.delete : Icons.add),
             );

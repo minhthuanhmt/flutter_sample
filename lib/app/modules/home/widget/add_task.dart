@@ -4,10 +4,10 @@ import 'package:flutter_sample/app/core/utils/extensions.dart';
 import 'package:flutter_sample/app/modules/home/controller.dart';
 import 'package:get/get.dart';
 
-class AddDialog extends StatelessWidget {
+class AddTask extends StatelessWidget {
   final homeCtrl = Get.find<HomeController>();
 
-  AddDialog({super.key});
+  AddTask({super.key});
 
   @override
   Widget build(BuildContext context) {

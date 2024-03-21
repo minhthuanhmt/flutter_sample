@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1013711-d3f6-41e2-b1e5-e49fe7ed37f9" name="Changes" comment="" />
+    <list default="true" id="f1013711-d3f6-41e2-b1e5-e49fe7ed37f9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/images/task.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/app/modules/detail/view.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/app/modules/detail/widget/doing_list.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/app/modules/detail/widget/done_list.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/generated/assets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/widget/add_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/widget/add_task.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/widget/task_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/widget/task_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,20 +72,25 @@
     <option name="showVisibilityIcons" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "io.flutter.reload.alreadyRun": "true",
-    "settings.editor.selected.configurable": "flutter.settings",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;Pixel_4_XL_API_34 [emulator-5554]&quot;,
+    &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.minhthuanhmt937.flutter_sample&quot;,
+    &quot;DEBUGGER_ID&quot;: &quot;Java&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHOW_ALL_PROCESSES&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;flutter.settings&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Flutter\flutter-getx\flutter_sample\assets\images" />
       <recent name="D:\Flutter\flutter-getx\flutter_sample\lib\app\widget" />
     </key>
   </component>
