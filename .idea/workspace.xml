@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1013711-d3f6-41e2-b1e5-e49fe7ed37f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/task.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/modules/detail/view.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/modules/detail/widget/doing_list.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app/modules/detail/widget/done_list.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/generated/assets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/widget/add_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/widget/add_task.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/widget/task_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/widget/task_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="f1013711-d3f6-41e2-b1e5-e49fe7ed37f9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

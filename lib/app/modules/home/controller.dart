@@ -117,4 +117,18 @@ class HomeController extends GetxController {
     doneTodos.add(todo);
     updateTodos();
   }
+
+  void deleteDoneTodo(dynamic doneTodo) {
+    var todo = doneTodos.indexWhere((element) => element == doneTodo);
+    doneTodos.removeAt(todo);
+    doneTodos.refresh();
+  }
+
+  bool isTodosEmpty(Task task) {
+    return task.todos == null || task.todos!.isEmpty;
+  }
+
+  int getDoneTodos(Task task) {
+    return task.todos!.where((element) => element["done"]).length;
+  }
 }

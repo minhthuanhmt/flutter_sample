@@ -12,9 +12,7 @@ class DoneList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => homeCtrl.doneTodos.isEmpty
-          ? const Column(
-              children: [],
-            )
+          ? Container()
           : ListView(
               shrinkWrap: true,
               physics: const ClampingScrollPhysics(),
@@ -30,26 +28,41 @@ class DoneList extends StatelessWidget {
                     ),
                   ),
                 ),
-                ...homeCtrl.doneTodos.map((element) => Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 9.0.percentWidth,
-                          vertical: 3.0.percentWidth),
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.check,
-                            color: Colors.blue,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 4.0.percentWidth),
-                            child: Text("${element["title"]}",
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  decoration: TextDecoration.lineThrough,
-                                )),
-                          ),
-                        ],
+                ...homeCtrl.doneTodos.map((element) => Dismissible(
+                      key: ObjectKey(element),
+                      direction: DismissDirection.endToStart,
+                      onDismissed: (direction) {
+                        homeCtrl.deleteDoneTodo(element);
+                      },
+                      background: Container(
+                        color: Colors.red.withOpacity(0.8),
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 8.0.percentWidth),
+                          child: const Icon(Icons.delete, color: Colors.white),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 9.0.percentWidth,
+                            vertical: 3.0.percentWidth),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.check,
+                              color: Colors.blue,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 4.0.percentWidth),
+                              child: Text("${element["title"]}",
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    decoration: TextDecoration.lineThrough,
+                                  )),
+                            ),
+                          ],
+                        ),
                       ),
                     ))
               ],
