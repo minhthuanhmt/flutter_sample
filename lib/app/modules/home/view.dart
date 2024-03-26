@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_sample/app/core/utils/extensions.dart';
-import 'package:flutter_sample/app/data/models/task.dart';
+import 'package:flutter_sample/app/data/models/task_card.dart';
 import 'package:flutter_sample/app/modules/home/controller.dart';
-import 'package:flutter_sample/app/modules/home/widget/add_card.dart';
-import 'package:flutter_sample/app/modules/home/widget/add_task.dart';
-import 'package:flutter_sample/app/modules/home/widget/task_card.dart';
+import 'package:flutter_sample/app/modules/home/widget/add_task_card_widget.dart';
+import 'package:flutter_sample/app/modules/home/widget/add_task_widget.dart';
+import 'package:flutter_sample/app/modules/home/widget/task_card_widget.dart';
 import 'package:get/get.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -33,15 +33,15 @@ class HomePage extends GetView<HomeController> {
                 shrinkWrap: true,
                 physics: const ClampingScrollPhysics(),
                 children: [
-                  ...controller.tasks
+                  ...controller.taskCards
                       .map(
                         (element) => LongPressDraggable(
                           data: element,
-                          child: TaskCard(task: element),
+                          child: TaskCardWidget(taskCard: element),
                           feedback: Opacity(
                             opacity: 0.8,
-                            child: TaskCard(
-                              task: element,
+                            child: TaskCardWidget(
+                              taskCard: element,
                             ),
                           ),
                           onDragStarted: () {
@@ -56,14 +56,14 @@ class HomePage extends GetView<HomeController> {
                         ),
                       )
                       .toList(),
-                  AddCard()
+                  AddTaskCardWidget()
                 ],
               );
             }),
           ],
         ),
       ),
-      floatingActionButton: DragTarget<Task>(
+      floatingActionButton: DragTarget<TaskCard>(
         builder: (BuildContext context, List<Object?> candidateData,
             List<dynamic> rejectedData) {
           return Obx(() {
@@ -71,8 +71,9 @@ class HomePage extends GetView<HomeController> {
               backgroundColor:
                   controller.deleting.value ? Colors.red : Colors.blue,
               onPressed: () {
-                if (controller.tasks.isNotEmpty) {
-                  Get.to(() => AddTask(), transition: Transition.downToUp);
+                if (controller.taskCards.isNotEmpty) {
+                  Get.to(() => AddTaskWidget(),
+                      transition: Transition.downToUp);
                 } else {
                   EasyLoading.showError("Please add task first");
                 }
@@ -82,7 +83,7 @@ class HomePage extends GetView<HomeController> {
           });
         },
         onAcceptWithDetails: (task) {
-          controller.deleteTask(task.data);
+          controller.deleteTaskCard(task.data);
           EasyLoading.showSuccess("Delete Success");
         },
       ),

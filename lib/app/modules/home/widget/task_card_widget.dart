@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/app/core/utils/extensions.dart';
-import 'package:flutter_sample/app/data/models/task.dart';
+import 'package:flutter_sample/app/data/models/task_card.dart';
 import 'package:flutter_sample/app/modules/detail/view.dart';
 import 'package:flutter_sample/app/modules/home/controller.dart';
 import 'package:get/get.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
-class TaskCard extends StatelessWidget {
-  TaskCard({super.key, required this.task});
+class TaskCardWidget extends StatelessWidget {
+  TaskCardWidget({super.key, required this.taskCard});
 
   final homeCtrl = Get.find<HomeController>();
-  final Task task;
+  final TaskCard taskCard;
 
   @override
   Widget build(BuildContext context) {
     var squareWidth = Get.width - 12.0.percentWidth;
-    final color = HexColor.fromHex(task.color);
+    final color = HexColor.fromHex(taskCard.color);
     return GestureDetector(
       onTap: () {
-        homeCtrl.changeTask(task);
-        homeCtrl.changeTodoStatus(task.todos ?? []);
+        homeCtrl.changeTask(taskCard);
+        homeCtrl.changeTodoStatus(taskCard.todos ?? []);
         Get.to(DetailPage());
       },
       child: Container(
@@ -41,9 +41,11 @@ class TaskCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             StepProgressIndicator(
-              totalSteps: homeCtrl.isTodosEmpty(task) ? 1 : task.todos!.length,
-              currentStep:
-                  homeCtrl.isTodosEmpty(task) ? 0 : homeCtrl.getDoneTodos(task),
+              totalSteps:
+                  homeCtrl.isTodosEmpty(taskCard) ? 1 : taskCard.todos!.length,
+              currentStep: homeCtrl.isTodosEmpty(taskCard)
+                  ? 0
+                  : homeCtrl.getDoneTodos(taskCard),
               size: 5,
               padding: 0,
               selectedGradientColor: LinearGradient(
@@ -59,7 +61,7 @@ class TaskCard extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.all(6.0.percentWidth),
-              child: Icon(IconData(task.icon, fontFamily: 'MaterialIcons'),
+              child: Icon(IconData(taskCard.icon, fontFamily: 'MaterialIcons'),
                   color: color),
             ),
             Padding(
@@ -68,7 +70,7 @@ class TaskCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    task.title,
+                    taskCard.title,
                     style: TextStyle(
                         fontSize: 12.0.sp, fontWeight: FontWeight.bold),
                     overflow: TextOverflow.ellipsis,
@@ -77,7 +79,7 @@ class TaskCard extends StatelessWidget {
                     height: 2.0.percentWidth,
                   ),
                   Text(
-                    "${task.todos?.length ?? 0} tasks",
+                    "${taskCard.todos?.length ?? 0} tasks",
                     style: const TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.bold,

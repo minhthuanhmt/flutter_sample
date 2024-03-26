@@ -2,15 +2,15 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_sample/app/core/utils/extensions.dart';
-import 'package:flutter_sample/app/data/models/task.dart';
+import 'package:flutter_sample/app/data/models/task_card.dart';
 import 'package:flutter_sample/app/modules/home/controller.dart';
 import 'package:flutter_sample/app/widget/icons.dart';
 import 'package:get/get.dart';
 
-class AddCard extends StatelessWidget {
+class AddTaskCardWidget extends StatelessWidget {
   final homeCtrl = Get.find<HomeController>();
 
-  AddCard({super.key});
+  AddTaskCardWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -83,13 +83,13 @@ class AddCard extends StatelessWidget {
                               icons[homeCtrl.chipIndex.value].icon!.codePoint;
                           String color =
                               icons[homeCtrl.chipIndex.value].color!.toHex();
-                          var task = Task(
+                          var task = TaskCard(
                             title: homeCtrl.editController.text,
                             icon: icon,
                             color: color,
                           );
                           Get.back();
-                          homeCtrl.addTask(task)
+                          homeCtrl.addTaskCard(task)
                               ? EasyLoading.showSuccess("Create success")
                               : EasyLoading.showError("Duplicated task");
                         }

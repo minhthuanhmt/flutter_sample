@@ -3,10 +3,10 @@ import 'package:flutter_sample/app/core/utils/extensions.dart';
 import 'package:flutter_sample/app/modules/home/controller.dart';
 import 'package:get/get.dart';
 
-class DoingList extends StatelessWidget {
+class DoingListWidget extends StatelessWidget {
   final homeCtrl = Get.find<HomeController>();
 
-  DoingList({super.key});
+  DoingListWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

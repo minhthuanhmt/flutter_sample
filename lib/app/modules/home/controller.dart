@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sample/app/data/services/storage/repository.dart';
 import 'package:get/get.dart';
 
-import '../../data/models/task.dart';
+import '../../data/models/task_card.dart';
 
 class HomeController extends GetxController {
   TaskRepository taskRepository;
@@ -14,16 +14,16 @@ class HomeController extends GetxController {
   final editController = TextEditingController();
   final chipIndex = 0.obs;
   final deleting = false.obs;
-  final tasks = <Task>[].obs;
-  final task = Rx<Task?>(null);
+  final taskCards = <TaskCard>[].obs;
+  final taskCard = Rx<TaskCard?>(null);
   final doingTodos = <dynamic>[].obs;
   final doneTodos = <dynamic>[].obs;
 
   @override
   void onInit() {
     super.onInit();
-    tasks.assignAll(taskRepository.readTasks());
-    ever(tasks, (_) => taskRepository.writeTasks(tasks));
+    taskCards.assignAll(taskRepository.readTaskCards());
+    ever(taskCards, (_) => taskRepository.writeTaskCards(taskCards));
   }
 
   @override
@@ -40,33 +40,33 @@ class HomeController extends GetxController {
     deleting.value = value;
   }
 
-  void changeTask(Task? select) {
-    task.value = select;
+  void changeTask(TaskCard? select) {
+    taskCard.value = select;
   }
 
-  bool addTask(Task task) {
-    if (tasks.contains(task)) {
+  bool addTaskCard(TaskCard taskCard) {
+    if (taskCards.contains(taskCard)) {
       return false;
     } else {
-      tasks.add(task);
+      taskCards.add(taskCard);
       return true;
     }
   }
 
-  void deleteTask(Task task) {
-    tasks.remove(task);
+  void deleteTaskCard(TaskCard taskCard) {
+    taskCards.remove(taskCard);
   }
 
-  bool updateTask(Task task, String title) {
-    var todos = task.todos ?? [];
+  bool updateTask(TaskCard taskCard, String title) {
+    var todos = taskCard.todos ?? [];
     if (containeTodo(todos, title)) {
       return false;
     }
     var todo = {"title": title, "done": false};
     todos.add(todo);
-    var newTask = task.copyWith(todos: todos);
-    tasks[tasks.indexWhere((element) => element == task)] = newTask;
-    tasks.refresh();
+    var newTask = taskCard.copyWith(todos: todos);
+    taskCards[taskCards.indexWhere((element) => element == taskCard)] = newTask;
+    taskCards.refresh();
     return true;
   }
 
@@ -105,9 +105,10 @@ class HomeController extends GetxController {
     var todos = <dynamic>[];
     todos.addAll(doingTodos);
     todos.addAll(doneTodos);
-    var newTask = task.value!.copyWith(todos: todos);
-    tasks[tasks.indexWhere((element) => element == task.value)] = newTask;
-    tasks.refresh();
+    var newTask = taskCard.value!.copyWith(todos: todos);
+    taskCards[taskCards.indexWhere((element) => element == taskCard.value)] =
+        newTask;
+    taskCards.refresh();
   }
 
   void doneTodo(String title) {
@@ -124,11 +125,11 @@ class HomeController extends GetxController {
     doneTodos.refresh();
   }
 
-  bool isTodosEmpty(Task task) {
+  bool isTodosEmpty(TaskCard task) {
     return task.todos == null || task.todos!.isEmpty;
   }
 
-  int getDoneTodos(Task task) {
+  int getDoneTodos(TaskCard task) {
     return task.todos!.where((element) => element["done"]).length;
   }
 }

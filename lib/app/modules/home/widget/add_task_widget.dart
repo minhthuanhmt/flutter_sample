@@ -4,10 +4,10 @@ import 'package:flutter_sample/app/core/utils/extensions.dart';
 import 'package:flutter_sample/app/modules/home/controller.dart';
 import 'package:get/get.dart';
 
-class AddTask extends StatelessWidget {
+class AddTaskWidget extends StatelessWidget {
   final homeCtrl = Get.find<HomeController>();
 
-  AddTask({super.key});
+  AddTaskWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +35,11 @@ class AddTask extends StatelessWidget {
                     ),
                     onPressed: () {
                       if (homeCtrl.formKey.currentState!.validate()) {
-                        if (homeCtrl.task.value == null) {
+                        if (homeCtrl.taskCard.value == null) {
                           EasyLoading.showError("Please select a task");
                         } else {
                           var success = homeCtrl.updateTask(
-                            homeCtrl.task.value!,
+                            homeCtrl.taskCard.value!,
                             homeCtrl.editController.text,
                           );
                           if (success) {
@@ -104,12 +104,12 @@ class AddTask extends StatelessWidget {
                     fontWeight: FontWeight.normal),
               ),
             ),
-            ...homeCtrl.tasks
+            ...homeCtrl.taskCards
                 .map(
                   (element) => Obx(
                     () => InkWell(
                       onTap: () {
-                        if (homeCtrl.task.value == element) {
+                        if (homeCtrl.taskCard.value == element) {
                           homeCtrl.changeTask(null);
                         } else {
                           homeCtrl.changeTask(element);
@@ -138,7 +138,7 @@ class AddTask extends StatelessWidget {
                               ),
                             ]),
                             Visibility(
-                              visible: homeCtrl.task.value == element,
+                              visible: homeCtrl.taskCard.value == element,
                               child: const Icon(
                                 Icons.check,
                                 color: Colors.blue,

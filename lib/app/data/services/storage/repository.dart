@@ -1,16 +1,16 @@
 import 'package:flutter_sample/app/data/providers/task/provider.dart';
 
-import '../../models/task.dart';
+import '../../models/task_card.dart';
 
 class TaskRepository {
-  TaskProvider taskProvider;
-  TaskRepository({required this.taskProvider});
+  TaskCardProvider taskCardProvider;
+  TaskRepository({required this.taskCardProvider});
 
-  List<Task> readTasks() {
-    return taskProvider.readTasks();
+  List<TaskCard> readTaskCards() {
+    return taskCardProvider.readTaskCards();
   }
 
-  void writeTasks(List<Task> tasks) {
-    taskProvider.writeTasks(tasks);
+  void writeTaskCards(List<TaskCard> taskCards) {
+    taskCardProvider.writeTaskCards(taskCards);
   }
 }
