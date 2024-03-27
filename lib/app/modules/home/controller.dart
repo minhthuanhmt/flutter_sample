@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sample/app/data/services/storage/repository.dart';
@@ -9,6 +10,8 @@ class HomeController extends GetxController {
   TaskRepository taskRepository;
 
   HomeController({required this.taskRepository});
+
+  final tabIndex = 0.obs;
 
   final formKey = GlobalKey<FormState>();
   final editController = TextEditingController();
@@ -131,5 +134,33 @@ class HomeController extends GetxController {
 
   int getDoneTodos(TaskCard task) {
     return task.todos!.where((element) => element["done"]).length;
+  }
+
+  void changeTabIndex(int index) {
+    tabIndex.value = index;
+  }
+
+  int getTotalTaskCards() {
+    var res = 0;
+    for (int i = 0; i < taskCards.length; i++) {
+      if (taskCards[i].todos != null) {
+        res += taskCards[i].todos!.length;
+      }
+    }
+    return res;
+  }
+
+  int getTotalTasksDone() {
+    var res = 0;
+    for (int i = 0; i < taskCards.length; i++) {
+      if (taskCards[i].todos != null) {
+        for (int j = 0; j < taskCards[i].todos!.length; j++) {
+          if (taskCards[i].todos![j]["done"] == true) {
+            res++;
+          }
+        }
+      }
+    }
+    return res;
   }
 }
