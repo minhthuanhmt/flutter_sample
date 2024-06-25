@@ -12,7 +12,6 @@ class ReportPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint("HomePage build");
     return Scaffold(
       body: SafeArea(
         child: Obx(() {
@@ -41,7 +40,7 @@ class ReportPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(
                     vertical: 3.0.percentWidth, horizontal: 4.0.percentWidth),
-                child: Divider(
+                child: const Divider(
                   thickness: 2,
                 ),
               ),
@@ -88,7 +87,7 @@ class ReportPage extends StatelessWidget {
                         SizedBox(
                           height: 2.0.percentWidth,
                         ),
-                        Text(
+                        const Text(
                           "Efficiency",
                           style: TextStyle(
                               color: Colors.grey, fontWeight: FontWeight.bold),
